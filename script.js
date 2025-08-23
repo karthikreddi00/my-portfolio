@@ -150,33 +150,7 @@ if (floatingBtn) {
     });
 }
 
-// Intersection Observer for animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in-up');
-            
-            // Trigger specific animations for different elements
-            if (entry.target.classList.contains('skill-item')) {
-                animateSkillProgress(entry.target);
-            }
-            
-            if (entry.target.classList.contains('project-card')) {
-                entry.target.style.animationDelay = `${Math.random() * 0.3}s`;
-            }
-        }
-    });
-}, observerOptions);
-
-// Observe all sections and interactive elements for animation
-document.querySelectorAll('section, .skill-item, .project-card').forEach(element => {
-    observer.observe(element);
-});
+// Removed intersection observer animations to prevent visibility issues
 
 // Animate skill progress bars
 function animateSkillProgress(skillItem) {
@@ -357,43 +331,7 @@ if (!document.querySelector('#loading-styles')) {
     document.head.appendChild(loadingStyle);
 }
 
-// Smooth reveal animation for sections
-function revealOnScroll() {
-    const sections = document.querySelectorAll('section');
-    
-    sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        
-        if (sectionTop < windowHeight * 0.75) {
-            section.style.opacity = '1';
-            section.style.transform = 'translateY(0)';
-        }
-    });
-}
-
-// Initialize reveal animation
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
-
-// Add initial styles for reveal animation
-if (!document.querySelector('#reveal-styles')) {
-    const revealStyle = document.createElement('style');
-    revealStyle.id = 'reveal-styles';
-    revealStyle.textContent = `
-        section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        
-        section:first-child {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    `;
-    document.head.appendChild(revealStyle);
-}
+// Sections are now always visible - no fade animation needed
 
 // Enhanced scroll-triggered animations
 const scrollAnimations = {
@@ -545,44 +483,29 @@ function enhanceFloatingShapes() {
     });
 }
 
-// Enhanced skill animations with progress bars
+// Enhanced skill animations (without progress bars)
 function enhanceSkillAnimations() {
     const skillItems = document.querySelectorAll('.skill-item');
     
     skillItems.forEach((item) => {
-        // Remove staggered entrance to prevent grid misalignment
-        // item.style.animationDelay = `${index * 0.1}s`;
-        
-        // Add progress bar animation on hover
+        // Add simple hover effects
         item.addEventListener('mouseenter', function() {
-            const progressBar = document.createElement('div');
-            progressBar.className = 'skill-progress-bar';
-            progressBar.style.cssText = `
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                height: 3px;
-                background: linear-gradient(90deg, #667eea, #764ba2);
-                width: 0%;
-                transition: width 0.6s ease;
-                border-radius: 0 0 4px 4px;
-            `;
-            
-            this.appendChild(progressBar);
-            
-            setTimeout(() => {
-                progressBar.style.width = '100%';
-            }, 100);
+            this.style.transform = 'translateY(-4px)';
+            this.style.boxShadow = '0 8px 25px rgba(37, 99, 235, 0.2)';
         });
         
         item.addEventListener('mouseleave', function() {
-            const progressBar = this.querySelector('.skill-progress-bar');
-            if (progressBar) {
-                progressBar.style.width = '0%';
-                setTimeout(() => {
-                    progressBar.remove();
-                }, 600);
-            }
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
+        });
+        
+        // Add touch event handling for mobile devices
+        item.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+        });
+        
+        item.addEventListener('touchend', function() {
+            this.style.transform = 'scale(1)';
         });
     });
 }
