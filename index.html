@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karthik Reddy - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">Portfolio</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#experience" class="nav-link">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#coding-profiles" class="nav-link">Coding Profiles</a>
+                </li>
+            </ul>
+            <div class="theme-toggle">
+                <button class="theme-btn" id="theme-toggle">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Floating Action Button -->
+    <div class="floating-action-btn">
+        <div class="fab-icon">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <!-- Animated Background -->
+        <div class="hero-bg-animation">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+            <div class="floating-shape shape-4"></div>
+        </div>
+        <!-- Particle Background -->
+        <div class="particle-bg">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Hi, I'm Karthik Reddy</span>
+                </h1>
+                <p class="hero-subtitle">B.Tech CSE Student | Programming Enthusiast | Cybersecurity Aspirant</p>
+                <p class="hero-description">
+                    I'm a passionate B.Tech CSE student at KL University, exploring the world of programming and cybersecurity. 
+                    Love coding in C, C++, and Java, solving data structure problems, and learning about cybersecurity.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary btn-glow">View My Work</a>
+                    <a href="https://github.com/karthikreddi00" class="btn btn-secondary">My GitHub</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-container">
+                    <img src="pictures/karthik-photo.jpg" alt="Karthik Reddy" class="profile-photo">
+                    <div class="image-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <!-- Background Pattern -->
+        <div class="section-bg-pattern">
+            <div class="pattern-dot"></div>
+            <div class="pattern-dot"></div>
+            <div class="pattern-dot"></div>
+            <div class="pattern-dot"></div>
+            <div class="pattern-dot"></div>
+        </div>
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-line">About Me</span>
+            </h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a passionate B.Tech CSE student at KL University with a strong interest in programming and cybersecurity. 
+                        I love exploring data structures, algorithms, and building solutions in C, C++, and Java.
+                    </p>
+                    <p>
+                        When I'm not coding, you can find me contributing to open-source projects on GitHub, 
+                        learning new programming concepts, or exploring the fascinating world of cybersecurity.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <div class="stat-circle">
+                                <svg class="stat-progress" viewBox="0 0 36 36">
+                                    <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                    <path class="stat-progress-fill" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                </svg>
+                                <span class="stat-number">2+</span>
+                            </div>
+                            <p>Years Learning</p>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-circle">
+                                <svg class="stat-progress" viewBox="0 0 36 36">
+                                    <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                    <path class="stat-progress-fill" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                </svg>
+                                <span class="stat-number">7+</span>
+                            </div>
+                            <p>GitHub Repos</p>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-circle">
+                                <svg class="stat-progress" viewBox="0 0 36 36">
+                                    <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                    <path class="stat-progress-fill" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                </svg>
+                                <span class="stat-number">5+</span>
+                            </div>
+                            <p>Projects Built</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="pictures/karthik-photo.jpg" alt="Karthik Reddy" class="about-photo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <!-- Background Pattern -->
+        <div class="section-bg-pattern">
+            <div class="pattern-dot"></div>
+            <div class="pattern-dot"></div>
+            <div class="pattern-dot"></div>
+            <div class="pattern-dot"></div>
+            <div class="pattern-dot"></div>
+        </div>
+        <div class="container">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fas fa-code"></i>
+                            <span>C</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-code"></i>
+                            <span>C++</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-java"></i>
+                            <span>Java</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Data Structures & Algorithms</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fas fa-sitemap"></i>
+                            <span>Arrays & Strings</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Linked Lists</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-tree"></i>
+                            <span>Trees & Graphs</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-sort"></i>
+                            <span>Sorting Algorithms</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-search"></i>
+                            <span>Search Algorithms</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Cybersecurity & Tools</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Network Security</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-bug"></i>
+                            <span>Penetration Testing</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-linux"></i>
+                            <span>Linux</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Web Technologies</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-node-js"></i>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-database"></i>
+                            <span>MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <!-- Background Pattern -->
+        <div class="section-bg-pattern">
+            <div class="pattern-dot"></div>
+            <div class="pattern-dot"></div>
+            <div class="pattern-dot"></div>
+            <div class="pattern-dot"></div>
+            <div class="pattern-dot"></div>
+        </div>
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-line">Work Experience</span>
+            </h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>B.Tech CSE Student</h3>
+                            <h4>KL University</h4>
+                            <p class="timeline-date">2023 - Present</p>
+                        </div>
+                        <ul>
+                            <li>Studying Computer Science and Engineering</li>
+                            <li>Learning programming languages and software development</li>
+                            <li>Participating in coding competitions and hackathons</li>
+                            <li>Exploring cybersecurity concepts and practices</li>
+                        </ul>
+                        <div class="timeline-badge">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Programming & DSA Learning</h3>
+                            <h4>Self-Learning</h4>
+                            <p class="timeline-date">2024 - Present</p>
+                        </div>
+                        <ul>
+                            <li>Learning C programming language fundamentals</li>
+                            <li>Studying data structures and algorithms</li>
+                            <li>Learning Java programming</li>
+                            <li>Building projects and solving coding problems</li>
+                        </ul>
+                        <div class="timeline-badge">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Cybersecurity Learning</h3>
+                            <h4>Self-Learning</h4>
+                            <p class="timeline-date">2025 - Present</p>
+                        </div>
+                        <ul>
+                            <li>Studying network security fundamentals</li>
+                            <li>Learning penetration testing methodologies</li>
+                            <li>Exploring ethical hacking concepts</li>
+                            <li>Practicing on cybersecurity platforms</li>
+                        </ul>
+                        <div class="timeline-badge">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <!-- Background Pattern -->
+        <div class="section-bg-pattern">
+            <div class="pattern-dot"></div>
+            <div class="pattern-dot"></div>
+            <div class="pattern-dot"></div>
+            <div class="pattern-dot"></div>
+            <div class="pattern-dot"></div>
+        </div>
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-line">Featured Projects</span>
+            </h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links-overlay">
+                                <a href="https://github.com/karthikreddi00/hotel" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-placeholder">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Hotel Booking System</h3>
+                        <p>A responsive hotel booking website with modern UI/UX design and booking functionality.</p>
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/karthikreddi00/hotel" class="btn btn-small btn-outline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links-overlay">
+                                <a href="https://github.com/karthikreddi00/ecommerce-frontend" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-placeholder">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>E-Commerce Frontend</h3>
+                        <p>A modern e-commerce website frontend with product catalog and shopping cart functionality.</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>JavaScript</span>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/karthikreddi00/ecommerce-frontend" class="btn btn-small btn-outline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links-overlay">
+                                <a href="https://github.com/karthikreddi00/cicdonreactproject" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-placeholder">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>React CI/CD Project</h3>
+                        <p>A React project demonstrating continuous integration and deployment practices with GitHub Actions.</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>GitHub Actions</span>
+                            <span>CI/CD</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/karthikreddi00/cicdonreactproject" class="btn btn-small btn-outline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links-overlay">
+                                <a href="https://github.com/karthikreddi00" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-placeholder">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Cybersecurity Portfolio</h3>
+                        <p>A comprehensive portfolio showcasing cybersecurity skills, ethical hacking projects, and security research findings.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Linux</span>
+                            <span>Security Tools</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/karthikreddi00" class="btn btn-small btn-outline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links-overlay">
+                                <a href="https://github.com/karthikreddi00" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-placeholder">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>DSA Practice Solutions</h3>
+                        <p>Collection of data structures and algorithms solutions from various coding platforms with detailed explanations.</p>
+                        <div class="project-tech">
+                            <span>C++</span>
+                            <span>Java</span>
+                            <span>Algorithms</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/karthikreddi00" class="btn btn-small btn-outline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coding Profiles Section -->
+    <section id="coding-profiles" class="coding-profiles">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-line">Coding Profiles</span>
+            </h2>
+            <div class="profiles-grid">
+                <div class="profile-card" data-animate="slide-in-left">
+                    <div class="profile-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="profile-content">
+                        <h3>CodeChef</h3>
+                        <p class="profile-stats">
+                            <span class="stat">
+                                <i class="fas fa-star"></i>
+                                <strong>1★</strong>
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-trophy"></i>
+                                <strong>1073</strong> Rating
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-check-circle"></i>
+                                <strong>48</strong> Problems
+                            </span>
+                        </p>
+                        <p class="profile-description">Active competitive programmer with strong problem-solving skills in data structures and algorithms.</p>
+                        <div class="profile-actions">
+                            <a href="https://www.codechef.com/users/klu_2300030338" class="btn btn-primary btn-glow" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Profile
+                            </a>
+                        </div>
+                    </div>
+                    <div class="profile-glow"></div>
+                </div>
+
+                <div class="profile-card" data-animate="slide-in-up">
+                    <div class="profile-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <div class="profile-content">
+                        <h3>LeetCode</h3>
+                        <p class="profile-stats">
+                            <span class="stat">
+                                <i class="fas fa-fire"></i>
+                                <strong>Active</strong>
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-clock"></i>
+                                <strong>Daily</strong> Practice
+                            </span>
+                        </p>
+                        <p class="profile-description">Consistent problem-solving practice with focus on algorithmic challenges and interview preparation.</p>
+                        <div class="profile-actions">
+                            <a href="https://leetcode.com/u/karthikreddi00/" class="btn btn-primary btn-glow" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Profile
+                            </a>
+                        </div>
+                    </div>
+                    <div class="profile-glow"></div>
+                </div>
+
+                <div class="profile-card" data-animate="slide-in-right">
+                    <div class="profile-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="profile-content">
+                        <h3>HackerRank</h3>
+                        <p class="profile-stats">
+                            <span class="stat">
+                                <i class="fas fa-certificate"></i>
+                                <strong>Java (Basic)</strong>
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-medal"></i>
+                                <strong>Problem Solving</strong>
+                            </span>
+                        </p>
+                        <p class="profile-description">Certified Java developer with strong foundation in problem-solving and programming fundamentals.</p>
+                        <div class="profile-actions">
+                            <a href="https://www.hackerrank.com/profile/klu2300030338" class="btn btn-primary btn-glow" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Profile
+                            </a>
+                        </div>
+                    </div>
+                    <div class="profile-glow"></div>
+                </div>
+
+                <div class="profile-card" data-animate="slide-in-left">
+                    <div class="profile-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="profile-content">
+                        <h3>Smart Interviews</h3>
+                        <p class="profile-stats">
+                            <span class="stat">
+                                <i class="fas fa-graduation-cap"></i>
+                                <strong>Learning</strong>
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-book"></i>
+                                <strong>DSA</strong> Focus
+                            </span>
+                        </p>
+                        <p class="profile-description">Focused learning platform for mastering data structures, algorithms, and programming concepts.</p>
+                        <div class="profile-actions">
+                            <a href="https://hive.smartinterviews.in/profile/karthikreddy00" class="btn btn-primary btn-glow" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Profile
+                            </a>
+                        </div>
+                    </div>
+                    <div class="profile-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Karthik Reddy</h4>
+                    <p>Passionate developer and cybersecurity enthusiast creating innovative solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="footer-social">
+                        <a href="https://github.com/karthikreddi00"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/karthik-reddy-2k05/"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/_kartheek__reddy/?hl=en"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:kartheekreddy2605@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Karthik Reddy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
