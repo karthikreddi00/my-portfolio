@@ -1,23 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Karthik Reddy - Portfolio</title>
+    <meta name="description"
+        content="Karthik Reddy — B.Tech CSE student, competitive programmer & cybersecurity aspirant. Explore projects, skills, and coding profiles.">
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1/dist/lenis.css">
 </head>
+
 <body>
+    <!-- Cursor glow follower -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Global floating particles -->
+    <canvas id="globalParticles" class="global-particles"></canvas>
+
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="#home">Portfolio</a>
+                <a href="#home"><span class="logo-bracket">&lt;</span>KR<span class="logo-bracket"> /&gt;</span></a>
             </div>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="navMenu">
                 <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#home" class="nav-link active">Home</a>
                 </li>
                 <li class="nav-item">
                     <a href="#about" class="nav-link">About</a>
@@ -34,174 +48,143 @@
                 <li class="nav-item">
                     <a href="#projects" class="nav-link">Projects</a>
                 </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
             </ul>
-            <div class="theme-toggle">
-                <button class="theme-btn" id="theme-toggle">
+            <div class="nav-actions">
+                <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">
                     <i class="fas fa-moon" id="theme-icon"></i>
                 </button>
-            </div>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Floating Action Button -->
-    <div class="floating-action-btn">
-        <div class="fab-icon">
-            <i class="fas fa-arrow-up"></i>
-        </div>
+    <!-- Scroll-to-top FAB -->
+    <div class="floating-action-btn" id="scrollTopBtn">
+        <i class="fas fa-arrow-up"></i>
     </div>
 
-    <!-- Hero Section -->
+    <!-- ==================== HERO SECTION ==================== -->
     <section id="home" class="hero">
-        <!-- Animated Background -->
-        <div class="hero-bg-animation">
-            <div class="floating-shape shape-1"></div>
-            <div class="floating-shape shape-2"></div>
-            <div class="floating-shape shape-3"></div>
-            <div class="floating-shape shape-4"></div>
+        <canvas id="heroCanvas" class="hero-canvas"></canvas>
+        <div class="hero-gradient-blobs">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
         </div>
-        <!-- Particle Background -->
-        <div class="particle-bg">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-        </div>
-        
         <div class="hero-container">
-            <div class="hero-content">
+            <div class="hero-content reveal">
+                <p class="hero-greeting">👋 Hello, I'm</p>
                 <h1 class="hero-title">
-                    <span class="gradient-text">Hi, I'm Karthik Reddy</span>
+                    <span class="gradient-text">Karthik Reddy</span>
                 </h1>
-                <p class="hero-subtitle">B.Tech CSE Student | Programming Enthusiast | Cybersecurity Aspirant</p>
+                <p class="hero-subtitle">
+                    <span id="typingText"></span><span class="typing-cursor">|</span>
+                </p>
                 <p class="hero-description">
-                    I'm a passionate B.Tech CSE student at KL University, exploring the world of programming and cybersecurity. 
+                    I'm a passionate B.Tech CSE student at KL University, exploring the world of programming and
+                    cybersecurity.
                     Love coding in C, C++, and Java, solving data structure problems, and learning about cybersecurity.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary btn-glow">View My Work</a>
-                    <a href="https://github.com/karthikreddi00" class="btn btn-secondary">My GitHub</a>
+                    <a href="#projects" class="btn btn-primary">
+                        <span>View My Work</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="https://github.com/karthikreddi00" class="btn btn-secondary" target="_blank">
+                        <i class="fab fa-github"></i>
+                        <span>My GitHub</span>
+                    </a>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="image-container">
-                    <img src="pictures/karthik-photo.jpg" alt="Karthik Reddy" class="profile-photo">
-                    <div class="image-glow"></div>
-                </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="mouse-wheel"></div>
             </div>
+            <p>Scroll down</p>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ==================== ABOUT SECTION ==================== -->
     <section id="about" class="about">
-        <!-- Background Pattern -->
-        <div class="section-bg-pattern">
-            <div class="pattern-dot"></div>
-            <div class="pattern-dot"></div>
-            <div class="pattern-dot"></div>
-            <div class="pattern-dot"></div>
-            <div class="pattern-dot"></div>
-        </div>
         <div class="container">
-            <h2 class="section-title">
-                <span class="title-line">About Me</span>
+            <h2 class="section-title reveal">
+                <span class="section-number">01.</span> About Me
             </h2>
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text reveal">
                     <p>
-                        I'm a passionate B.Tech CSE student at KL University with a strong interest in programming and cybersecurity. 
+                        I'm a passionate B.Tech CSE student at KL University with a strong interest in programming and
+                        cybersecurity.
                         I love exploring data structures, algorithms, and building solutions in C, C++, and Java.
                     </p>
                     <p>
-                        When I'm not coding, you can find me contributing to open-source projects on GitHub, 
+                        When I'm not coding, you can find me contributing to open-source projects on GitHub,
                         learning new programming concepts, or exploring the fascinating world of cybersecurity.
                     </p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <div class="stat-circle">
-                                <svg class="stat-progress" viewBox="0 0 36 36">
-                                    <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                                    <path class="stat-progress-fill" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                                </svg>
-                                <span class="stat-number">2+</span>
-                            </div>
-                            <p>Years Learning</p>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-circle">
-                                <svg class="stat-progress" viewBox="0 0 36 36">
-                                    <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                                    <path class="stat-progress-fill" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                                </svg>
-                                <span class="stat-number">7+</span>
-                            </div>
-                            <p>GitHub Repos</p>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-circle">
-                                <svg class="stat-progress" viewBox="0 0 36 36">
-                                    <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                                    <path class="stat-progress-fill" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                                </svg>
-                                <span class="stat-number">5+</span>
-                            </div>
-                            <p>Projects Built</p>
-                        </div>
-                    </div>
                 </div>
-                <div class="about-image">
-                    <img src="pictures/karthik-photo.jpg" alt="Karthik Reddy" class="about-photo">
+                <div class="about-stats reveal">
+                    <div class="stat-card glass-card">
+                        <div class="stat-number" data-count="2">0</div>
+                        <div class="stat-suffix">+</div>
+                        <p class="stat-label">Years Learning</p>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-number" data-count="7">0</div>
+                        <div class="stat-suffix">+</div>
+                        <p class="stat-label">GitHub Repos</p>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-number" data-count="5">0</div>
+                        <div class="stat-suffix">+</div>
+                        <p class="stat-label">Projects Built</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- ==================== SKILLS SECTION ==================== -->
     <section id="skills" class="skills">
-        <!-- Background Pattern -->
-        <div class="section-bg-pattern">
-            <div class="pattern-dot"></div>
-            <div class="pattern-dot"></div>
-            <div class="pattern-dot"></div>
-            <div class="pattern-dot"></div>
-            <div class="pattern-dot"></div>
-        </div>
         <div class="container">
-            <h2 class="section-title">Skills & Technologies</h2>
+            <h2 class="section-title reveal">
+                <span class="section-number">02.</span> Skills & Technologies
+            </h2>
             <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
+                <div class="skill-category glass-card reveal">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
                     <div class="skill-items">
                         <div class="skill-item">
-                            <i class="fas fa-code"></i>
+                            <i class="devicon-c-plain colored"></i>
                             <span>C</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fas fa-code"></i>
+                            <i class="devicon-cplusplus-plain colored"></i>
                             <span>C++</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-java"></i>
+                            <i class="devicon-java-plain colored"></i>
                             <span>Java</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-js"></i>
+                            <i class="devicon-javascript-plain colored"></i>
                             <span>JavaScript</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-python"></i>
+                            <i class="devicon-python-plain colored"></i>
                             <span>Python</span>
                         </div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Data Structures & Algorithms</h3>
+                <div class="skill-category glass-card reveal">
+                    <h3><i class="fas fa-sitemap"></i> Data Structures & Algorithms</h3>
                     <div class="skill-items">
                         <div class="skill-item">
                             <i class="fas fa-sitemap"></i>
@@ -225,8 +208,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Cybersecurity & Tools</h3>
+                <div class="skill-category glass-card reveal">
+                    <h3><i class="fas fa-shield-alt"></i> Cybersecurity & Tools</h3>
                     <div class="skill-items">
                         <div class="skill-item">
                             <i class="fas fa-shield-alt"></i>
@@ -237,40 +220,40 @@
                             <span>Penetration Testing</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-linux"></i>
+                            <i class="devicon-linux-plain colored"></i>
                             <span>Linux</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-git-alt"></i>
+                            <i class="devicon-git-plain colored"></i>
                             <span>Git</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-github"></i>
+                            <i class="devicon-github-original colored"></i>
                             <span>GitHub</span>
                         </div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Web Technologies</h3>
+                <div class="skill-category glass-card reveal">
+                    <h3><i class="fas fa-globe"></i> Web Technologies</h3>
                     <div class="skill-items">
                         <div class="skill-item">
-                            <i class="fab fa-html5"></i>
+                            <i class="devicon-html5-plain colored"></i>
                             <span>HTML5</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-css3-alt"></i>
+                            <i class="devicon-css3-plain colored"></i>
                             <span>CSS3</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-react"></i>
+                            <i class="devicon-react-original colored"></i>
                             <span>React</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-node-js"></i>
+                            <i class="devicon-nodejs-plain-wordmark colored"></i>
                             <span>Node.js</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-database"></i>
+                            <i class="devicon-mongodb-plain colored"></i>
                             <span>MongoDB</span>
                         </div>
                     </div>
@@ -279,249 +262,189 @@
         </div>
     </section>
 
-    <!-- Coding Profiles Section -->
+    <!-- ==================== CODING PROFILES SECTION ==================== -->
     <section id="coding-profiles" class="coding-profiles">
         <div class="container">
-            <h2 class="section-title">
-                <span class="title-line">Coding Profiles</span>
+            <h2 class="section-title reveal">
+                <span class="section-number">03.</span> Coding Profiles
             </h2>
             <div class="profiles-grid">
-                <div class="profile-card" data-animate="slide-in-left">
+                <div class="profile-card glass-card reveal">
                     <div class="profile-icon">
-                        <i class="fas fa-code"></i>
+                        <img src="https://cdn.iconscout.com/icon/free/png-256/free-codechef-3628685-3029910.png"
+                            alt="CodeChef">
                     </div>
                     <div class="profile-content">
                         <h3>CodeChef</h3>
-                        <p class="profile-stats">
-                            <span class="stat">
-                                <i class="fas fa-star"></i>
-                                <strong>1★</strong>
+                        <div class="profile-stats">
+                            <span class="stat-badge">
+                                <i class="fas fa-star"></i> <strong>1★</strong>
                             </span>
-                            <span class="stat">
-                                <i class="fas fa-trophy"></i>
-                                <strong>1073</strong> Rating
+                            <span class="stat-badge">
+                                <i class="fas fa-trophy"></i> <strong>1327</strong> Rating
                             </span>
-                            <span class="stat">
-                                <i class="fas fa-check-circle"></i>
-                                <strong>48</strong> Problems
+                            <span class="stat-badge">
+                                <i class="fas fa-check-circle"></i> <strong>158</strong> Problems
                             </span>
-                        </p>
-                        <p class="profile-description">Active competitive programmer with strong problem-solving skills in data structures and algorithms.</p>
-                        <div class="profile-actions">
-                            <a href="https://www.codechef.com/users/klu_2300030338" class="btn btn-primary btn-glow" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                View Profile
-                            </a>
                         </div>
+                        <p class="profile-description">Active competitive programmer with strong problem-solving skills
+                            in data structures and algorithms.</p>
+                        <a href="https://www.codechef.com/users/klu_2300030338" class="btn btn-outline" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Profile
+                        </a>
                     </div>
-                    <div class="profile-glow"></div>
                 </div>
 
-                <div class="profile-card" data-animate="slide-in-up">
-                    <div class="profile-icon">
-                        <i class="fas fa-code-branch"></i>
+                <div class="profile-card glass-card reveal">
+                    <div class="profile-icon leetcode-icon">
+                        <img src="https://leetcode.com/static/images/LeetCode_logo_rvs.png" alt="LeetCode">
                     </div>
                     <div class="profile-content">
                         <h3>LeetCode</h3>
-                        <p class="profile-stats">
-                            <span class="stat">
-                                <i class="fas fa-trophy"></i>
-                                <strong>1200+</strong> Rating
+                        <div class="profile-stats">
+                            <span class="stat-badge">
+                                <i class="fas fa-trophy"></i> <strong>1536</strong> Rating
                             </span>
-                            <span class="stat">
-                                <i class="fas fa-fire"></i>
-                                <strong>45</strong> Day Streak
+                            <span class="stat-badge">
+                                <i class="fas fa-fire"></i> <strong>76</strong> Day Streak
                             </span>
-                            <span class="stat">
-                                <i class="fas fa-check-circle"></i>
-                                <strong>150+</strong> Problems
+                            <span class="stat-badge">
+                                <i class="fas fa-check-circle"></i> <strong>151</strong> Problems
                             </span>
-                        </p>
-                        <p class="profile-description">Active competitive programmer with consistent daily practice and strong problem-solving skills in data structures and algorithms.</p>
-                        <div class="profile-actions">
-                            <a href="https://leetcode.com/u/karthikreddi00/" class="btn btn-primary btn-glow" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                View Profile
-                            </a>
                         </div>
+                        <p class="profile-description">Active competitive programmer with consistent daily practice and
+                            strong problem-solving skills in data structures and algorithms.</p>
+                        <a href="https://leetcode.com/u/karthikreddi00/" class="btn btn-outline" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Profile
+                        </a>
                     </div>
-                    <div class="profile-glow"></div>
                 </div>
 
-                <div class="profile-card" data-animate="slide-in-right">
+                <div class="profile-card glass-card reveal">
                     <div class="profile-icon">
-                        <i class="fas fa-laptop-code"></i>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png"
+                            alt="HackerRank">
                     </div>
                     <div class="profile-content">
                         <h3>HackerRank</h3>
-                        <p class="profile-stats">
-                            <span class="stat">
-                                <i class="fas fa-certificate"></i>
-                                <strong>Java (Basic)</strong>
+                        <div class="profile-stats">
+                            <span class="stat-badge">
+                                <i class="fas fa-certificate"></i> <strong>Java (Basic)</strong>
                             </span>
-                            <span class="stat">
-                                <i class="fas fa-medal"></i>
-                                <strong>Problem Solving</strong>
+                            <span class="stat-badge">
+                                <i class="fas fa-medal"></i> <strong>Problem Solving</strong>
                             </span>
-                        </p>
-                        <p class="profile-description">Certified Java developer with strong foundation in problem-solving and programming fundamentals.</p>
-                        <div class="profile-actions">
-                            <a href="https://www.hackerrank.com/profile/klu2300030338" class="btn btn-primary btn-glow" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                View Profile
-                            </a>
                         </div>
+                        <p class="profile-description">Certified Java developer with strong foundation in
+                            problem-solving and programming fundamentals.</p>
+                        <a href="https://www.hackerrank.com/profile/klu2300030338" class="btn btn-outline"
+                            target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Profile
+                        </a>
                     </div>
-                    <div class="profile-glow"></div>
                 </div>
 
-                <div class="profile-card" data-animate="slide-in-left">
+                <div class="profile-card glass-card reveal">
                     <div class="profile-icon">
                         <i class="fas fa-brain"></i>
                     </div>
                     <div class="profile-content">
                         <h3>Smart Interviews</h3>
-                        <p class="profile-stats">
-                            <span class="stat">
-                                <i class="fas fa-graduation-cap"></i>
-                                <strong>Learning</strong>
+                        <div class="profile-stats">
+                            <span class="stat-badge">
+                                <i class="fas fa-graduation-cap"></i> <strong>Learning</strong>
                             </span>
-                            <span class="stat">
-                                <i class="fas fa-book"></i>
-                                <strong>DSA</strong> Focus
+                            <span class="stat-badge">
+                                <i class="fas fa-book"></i> <strong>DSA</strong> Focus
                             </span>
-                        </p>
-                        <p class="profile-description">Focused learning platform for mastering data structures, algorithms, and programming concepts.</p>
-                        <div class="profile-actions">
-                            <a href="https://hive.smartinterviews.in/profile/karthikreddy00" class="btn btn-primary btn-glow" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                View Profile
-                            </a>
                         </div>
+                        <p class="profile-description">Focused learning platform for mastering data structures,
+                            algorithms, and programming concepts.</p>
+                        <a href="https://hive.smartinterviews.in/profile/karthikreddy00" class="btn btn-outline"
+                            target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Profile
+                        </a>
                     </div>
-                    <div class="profile-glow"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Certificates Section -->
+    <!-- ==================== CERTIFICATES SECTION ==================== -->
     <section id="certificates" class="certificates">
-        <!-- Background Pattern -->
-        <div class="section-bg-pattern">
-            <div class="pattern-dot"></div>
-            <div class="pattern-dot"></div>
-            <div class="pattern-dot"></div>
-            <div class="pattern-dot"></div>
-            <div class="pattern-dot"></div>
-        </div>
         <div class="container">
-            <h2 class="section-title">
-                <span class="title-line">Certificates & Achievements</span>
+            <h2 class="section-title reveal">
+                <span class="section-number">04.</span> Certificates & Achievements
             </h2>
-            <div class="certificates-grid">
-                <div class="certificate-card">
-                    <div class="certificate-icon">
+            <div class="cert-grid">
+                <div class="cert-card glass-card reveal">
+                    <div class="cert-glow"></div>
+                    <div class="cert-icon-wrap">
                         <i class="fab fa-java"></i>
                     </div>
-                    <div class="certificate-content">
-                        <h3>Java (Basic) Certificate</h3>
-                        <p>HackerRank - Problem Solving & Java Fundamentals</p>
-                        <div class="certificate-badge">
-                            <i class="fas fa-certificate"></i>
-                            <span>Verified</span>
-                        </div>
-                    </div>
+                    <h3>Java (Basic) Certificate</h3>
+                    <p>HackerRank - Problem Solving & Java Fundamentals</p>
+                    <span class="cert-badge verified"><i class="fas fa-check-circle"></i> Verified</span>
                 </div>
-                
-                <div class="certificate-card">
-                    <div class="certificate-icon">
+                <div class="cert-card glass-card reveal">
+                    <div class="cert-glow"></div>
+                    <div class="cert-icon-wrap">
                         <i class="fas fa-code"></i>
                     </div>
-                    <div class="certificate-content">
-                        <h3>Problem Solving Certificate</h3>
-                        <p>HackerRank - Data Structures & Algorithms</p>
-                        <div class="certificate-badge">
-                            <i class="fas fa-certificate"></i>
-                            <span>Verified</span>
-                        </div>
-                    </div>
+                    <h3>Problem Solving Certificate</h3>
+                    <p>HackerRank - Data Structures & Algorithms</p>
+                    <span class="cert-badge verified"><i class="fas fa-check-circle"></i> Verified</span>
                 </div>
-                
-                <div class="certificate-card">
-                    <div class="certificate-icon">
+                <div class="cert-card glass-card reveal">
+                    <div class="cert-glow"></div>
+                    <div class="cert-icon-wrap">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <div class="certificate-content">
-                        <h3>B.Tech CSE</h3>
-                        <p>KL University - Computer Science & Engineering</p>
-                        <div class="certificate-badge">
-                            <i class="fas fa-university"></i>
-                            <span>In Progress</span>
-                        </div>
-                    </div>
+                    <h3>B.Tech CSE</h3>
+                    <p>KL University - Computer Science & Engineering</p>
+                    <span class="cert-badge in-progress"><i class="fas fa-spinner"></i> In Progress</span>
                 </div>
-                
-                <div class="certificate-card">
-                    <div class="certificate-icon">
+                <div class="cert-card glass-card reveal">
+                    <div class="cert-glow"></div>
+                    <div class="cert-icon-wrap google">
                         <i class="fab fa-google"></i>
                     </div>
-                    <div class="certificate-content">
-                        <h3>Google Cloud Associate</h3>
-                        <p>Google Cloud Platform - Cloud Engineering & Infrastructure</p>
-                        <div class="certificate-badge">
-                            <i class="fas fa-certificate"></i>
-                            <span>Verified</span>
-                        </div>
-                    </div>
+                    <h3>Google Cloud Associate</h3>
+                    <p>Google Cloud Platform - Cloud Engineering & Infrastructure</p>
+                    <span class="cert-badge verified"><i class="fas fa-check-circle"></i> Verified</span>
                 </div>
-                
-                <div class="certificate-card">
-                    <div class="certificate-icon">
+                <div class="cert-card glass-card reveal">
+                    <div class="cert-glow"></div>
+                    <div class="cert-icon-wrap cyber">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <div class="certificate-content">
-                        <h3>Cybersecurity Fundamentals</h3>
-                        <p>Self-Learning - Network Security & Ethical Hacking</p>
-                        <div class="certificate-badge">
-                            <i class="fas fa-book"></i>
-                            <span>Learning</span>
-                        </div>
-                    </div>
+                    <h3>Cybersecurity Fundamentals</h3>
+                    <p>Self-Learning - Network Security & Ethical Hacking</p>
+                    <span class="cert-badge learning"><i class="fas fa-book-open"></i> Learning</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- ==================== PROJECTS SECTION ==================== -->
     <section id="projects" class="projects">
-        <!-- Background Pattern -->
-        <div class="section-bg-pattern">
-            <div class="pattern-dot"></div>
-            <div class="pattern-dot"></div>
-            <div class="pattern-dot"></div>
-            <div class="pattern-dot"></div>
-            <div class="pattern-dot"></div>
-        </div>
         <div class="container">
-            <h2 class="section-title">
-                <span class="title-line">Featured Projects</span>
+            <h2 class="section-title reveal">
+                <span class="section-number">05.</span> Featured Projects
             </h2>
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card glass-card reveal">
                     <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links-overlay">
-                                <a href="https://github.com/karthikreddi00/hotel" class="project-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
                         <div class="project-placeholder">
                             <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://github.com/karthikreddi00/hotel" class="overlay-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="overlay-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
                         </div>
                     </div>
                     <div class="project-content">
@@ -533,123 +456,130 @@
                             <span>JavaScript</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/karthikreddi00/hotel" class="btn btn-small btn-outline">GitHub</a>
+                            <a href="https://github.com/karthikreddi00/hotel" class="btn btn-sm btn-outline"
+                                target="_blank"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+
+                <div class="project-card glass-card reveal">
                     <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links-overlay">
-                                <a href="https://github.com/karthikreddi00/ecommerce-frontend" class="project-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
                         <div class="project-placeholder">
                             <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://github.com/karthikreddi00/ecommerce-frontend" class="overlay-link"
+                                target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="overlay-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
                         </div>
                     </div>
                     <div class="project-content">
                         <h3>E-Commerce Frontend</h3>
-                        <p>A modern e-commerce website frontend with product catalog and shopping cart functionality.</p>
+                        <p>A modern e-commerce website frontend with product catalog and shopping cart functionality.
+                        </p>
                         <div class="project-tech">
                             <span>React</span>
                             <span>JavaScript</span>
                             <span>CSS3</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/karthikreddi00/ecommerce-frontend" class="btn btn-small btn-outline">GitHub</a>
+                            <a href="https://github.com/karthikreddi00/ecommerce-frontend"
+                                class="btn btn-sm btn-outline" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+
+                <div class="project-card glass-card reveal">
                     <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links-overlay">
-                                <a href="https://github.com/karthikreddi00/cicdonreactproject" class="project-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
                         <div class="project-placeholder">
                             <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://github.com/karthikreddi00/cicdonreactproject" class="overlay-link"
+                                target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="overlay-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
                         </div>
                     </div>
                     <div class="project-content">
                         <h3>React CI/CD Project</h3>
-                        <p>A React project demonstrating continuous integration and deployment practices with GitHub Actions.</p>
+                        <p>A React project demonstrating continuous integration and deployment practices with GitHub
+                            Actions.</p>
                         <div class="project-tech">
                             <span>React</span>
                             <span>GitHub Actions</span>
                             <span>CI/CD</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/karthikreddi00/cicdonreactproject" class="btn btn-small btn-outline">GitHub</a>
+                            <a href="https://github.com/karthikreddi00/cicdonreactproject"
+                                class="btn btn-sm btn-outline" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+
+                <div class="project-card glass-card reveal">
                     <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links-overlay">
-                                <a href="https://github.com/karthikreddi00" class="project-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
                         <div class="project-placeholder">
                             <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://github.com/karthikreddi00" class="overlay-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="overlay-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
                         </div>
                     </div>
                     <div class="project-content">
                         <h3>Cybersecurity Portfolio</h3>
-                        <p>A comprehensive portfolio showcasing cybersecurity skills, ethical hacking projects, and security research findings.</p>
+                        <p>A comprehensive portfolio showcasing cybersecurity skills, ethical hacking projects, and
+                            security research findings.</p>
                         <div class="project-tech">
                             <span>Python</span>
                             <span>Linux</span>
                             <span>Security Tools</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/karthikreddi00" class="btn btn-small btn-outline">GitHub</a>
+                            <a href="https://github.com/karthikreddi00" class="btn btn-sm btn-outline"
+                                target="_blank"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+
+                <div class="project-card glass-card reveal">
                     <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links-overlay">
-                                <a href="https://github.com/karthikreddi00" class="project-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
                         <div class="project-placeholder">
                             <i class="fas fa-code"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://github.com/karthikreddi00" class="overlay-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="overlay-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
                         </div>
                     </div>
                     <div class="project-content">
                         <h3>DSA Practice Solutions</h3>
-                        <p>Collection of data structures and algorithms solutions from various coding platforms with detailed explanations.</p>
+                        <p>Collection of data structures and algorithms solutions from various coding platforms with
+                            detailed explanations.</p>
                         <div class="project-tech">
                             <span>C++</span>
                             <span>Java</span>
                             <span>Algorithms</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/karthikreddi00" class="btn btn-small btn-outline">GitHub</a>
+                            <a href="https://github.com/karthikreddi00" class="btn btn-sm btn-outline"
+                                target="_blank"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -657,15 +587,77 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title reveal">
+                <span class="section-number">06.</span> Get In Touch
+            </h2>
+            <div class="contact-wrapper reveal">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>I'm currently looking for opportunities in software development and cybersecurity. Feel free to
+                        reach out!</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:kartheekreddy2605@gmail.com">kartheekreddy2605@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>KL University, India</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/karthikreddi00" class="social-icon" target="_blank"
+                            aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/karthik-reddy-2k05/" class="social-icon" target="_blank"
+                            aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.credly.com/users/kommareddy-karthik-reddy/badges#credly"
+                            class="social-icon" target="_blank" aria-label="Credly">
+                            <i class="fas fa-certificate"></i>
+                        </a>
+                        <a href="mailto:kartheekreddy2605@gmail.com" class="social-icon" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form glass-card" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder=" " required>
+                        <label for="name">Your Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder=" " required>
+                        <label for="email">Your Email</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
+                        <label for="message">Your Message</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Karthik Reddy</h4>
+                <div class="footer-brand">
+                    <a href="#home" class="footer-logo"><span class="logo-bracket">&lt;</span>KR<span
+                            class="logo-bracket"> /&gt;</span></a>
                     <p>Passionate developer and cybersecurity enthusiast creating innovative solutions.</p>
                 </div>
-                <div class="footer-section">
+                <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
@@ -673,13 +665,14 @@
                         <li><a href="#projects">Projects</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                <div class="footer-social-section">
                     <h4>Connect</h4>
                     <div class="footer-social">
-                        <a href="https://github.com/karthikreddi00"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/karthik-reddy-2k05/"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://www.instagram.com/_kartheek__reddy/?hl=en"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.credly.com/users/kommareddy-karthik-reddy/badges#credly" title="View my Credly badges"><i class="fas fa-certificate"></i></a>
+                        <a href="https://github.com/karthikreddi00" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/karthik-reddy-2k05/" target="_blank"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://www.credly.com/users/kommareddy-karthik-reddy/badges#credly" target="_blank"
+                            title="View my Credly badges"><i class="fas fa-certificate"></i></a>
                         <a href="mailto:kartheekreddy2605@gmail.com"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
@@ -690,6 +683,8 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
