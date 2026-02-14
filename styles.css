@@ -1064,6 +1064,9 @@ ul {
    CODING PROFILE LOGOS — DARK MODE FIX
    ============================================ */
 /* Filter removed to keep original colors */
+[data-theme="dark"] .leetcode-icon img {
+    filter: none !important;
+}
 
 /* ============================================
    PROJECTS SECTION
