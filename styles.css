@@ -1060,13 +1060,10 @@ ul {
 /* ============================================
    CODING PROFILE LOGOS — DARK MODE FIX
    ============================================ */
-[data-theme="dark"] .leetcode-icon img {
-    filter: brightness(0) invert(1);
-}
-
-[data-theme="light"] .leetcode-icon img {
-    filter: none;
-}
+/* ============================================
+   CODING PROFILE LOGOS — DARK MODE FIX
+   ============================================ */
+/* Filter removed to keep original colors */
 
 /* ============================================
    PROJECTS SECTION
