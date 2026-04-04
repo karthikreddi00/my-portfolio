@@ -339,44 +339,99 @@ function initContactForm() {
     const form = document.getElementById('contactForm');
     if (!form) return;
 
+    const EMAILJS_CONFIG = {
+        publicKey: "aBFf0iNv54IjKwKyl",
+        serviceId: "service_k488q8a",
+        templateId: "template_6ef7tjh"
+    };
+
+    emailjs.init({
+        publicKey: EMAILJS_CONFIG.publicKey
+    });
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const btn = form.querySelector('.btn-primary');
-        const originalHTML = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Sending...</span>';
-        btn.style.pointerEvents = 'none';
+        const submitBtn = form.querySelector('.btn-primary');
+        const submitBtnText = submitBtn.querySelector('span');
+        const originalText = submitBtnText.textContent;
+        const submitBtnIcon = submitBtn.querySelector('i');
+        const originalIcon = submitBtnIcon ? submitBtnIcon.className : '';
 
-        const formData = new FormData(form);
-        formData.append('access_key', ''); // placeholder — see below
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const messageInput = document.getElementById("message");
 
-        try {
-            const res = await fetch('https://formsubmit.co/ajax/kartheekreddy2605@gmail.com', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify({
-                    name: form.querySelector('#name').value,
-                    email: form.querySelector('#email').value,
-                    message: form.querySelector('#message').value,
-                    _subject: 'New Portfolio Contact Message'
-                })
-            });
+        const from_name = nameInput.value.trim();
+        const from_email = emailInput.value.trim();
+        const message = messageInput.value.trim();
 
-            if (res.ok) {
-                btn.innerHTML = '<i class="fas fa-check"></i> <span>Message Sent!</span>';
-                form.reset();
-            } else {
-                btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> <span>Failed — try email</span>';
-            }
-        } catch {
-            btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> <span>Failed — try email</span>';
+        if (!from_name || !from_email || !message) {
+            submitBtnText.textContent = "Please fill all fields";
+            if (submitBtnIcon) submitBtnIcon.className = "fas fa-exclamation-triangle";
+            setTimeout(() => {
+                submitBtnText.textContent = originalText;
+                if (submitBtnIcon) submitBtnIcon.className = originalIcon;
+            }, 2000);
+            return;
         }
 
-        setTimeout(() => {
-            btn.innerHTML = originalHTML;
-            btn.style.pointerEvents = '';
-        }, 3000);
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(from_email)) {
+            submitBtnText.textContent = "Invalid Email";
+            if (submitBtnIcon) submitBtnIcon.className = "fas fa-exclamation-triangle";
+            setTimeout(() => {
+                submitBtnText.textContent = originalText;
+                if (submitBtnIcon) submitBtnIcon.className = originalIcon;
+            }, 2000);
+            return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.style.pointerEvents = 'none';
+        submitBtnText.textContent = "Sending...";
+        if (submitBtnIcon) submitBtnIcon.className = "fas fa-spinner fa-spin";
+
+        try {
+            await emailjs.send(
+                EMAILJS_CONFIG.serviceId,
+                EMAILJS_CONFIG.templateId,
+                {
+                    from_name,
+                    from_email,
+                    message
+                }
+            );
+
+            submitBtnText.textContent = "Message Sent Successfully";
+            if (submitBtnIcon) submitBtnIcon.className = "fas fa-check";
+            form.reset();
+
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.style.pointerEvents = '';
+                submitBtnText.textContent = originalText;
+                if (submitBtnIcon) submitBtnIcon.className = originalIcon;
+            }, 2500);
+
+        } catch (error) {
+            console.error("EmailJS Error:", error);
+            submitBtnText.textContent = "Failed to Send";
+            if (submitBtnIcon) submitBtnIcon.className = "fas fa-times";
+
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.style.pointerEvents = '';
+                submitBtnText.textContent = originalText;
+                if (submitBtnIcon) submitBtnIcon.className = originalIcon;
+            }, 2500);
+        }
     });
+}
+
+function showFormStatus(btn, type, message) {
+    const icon = type === 'success' ? 'fa-check' : 'fa-exclamation-triangle';
+    btn.innerHTML = `<i class="fas ${icon}"></i> <span>${message}</span>`;
 }
 
 // ==========================================

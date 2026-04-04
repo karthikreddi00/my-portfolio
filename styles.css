@@ -913,6 +913,121 @@ ul {
     margin-bottom: 16px;
 }
 
+/* --- Dynamic Stats: Skeleton Loader --- */
+.stat-badge.skeleton-loading {
+    position: relative;
+    color: transparent !important;
+    overflow: hidden;
+    min-width: 80px;
+    min-height: 28px;
+}
+
+.stat-badge.skeleton-loading * {
+    color: transparent !important;
+}
+
+.stat-badge.skeleton-loading::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 212, 255, 0.04) 0%,
+        rgba(0, 212, 255, 0.12) 40%,
+        rgba(123, 47, 247, 0.08) 60%,
+        rgba(0, 212, 255, 0.04) 100%
+    );
+    background-size: 200% 100%;
+    animation: skeletonShimmer 1.8s ease-in-out infinite;
+}
+
+@keyframes skeletonShimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* --- Difficulty-colored badges --- */
+.stat-badge-easy {
+    border-color: rgba(0, 184, 163, 0.25) !important;
+    background: rgba(0, 184, 163, 0.06) !important;
+}
+
+.stat-badge-medium {
+    border-color: rgba(255, 192, 30, 0.25) !important;
+    background: rgba(255, 192, 30, 0.06) !important;
+}
+
+.stat-badge-hard {
+    border-color: rgba(255, 55, 95, 0.25) !important;
+    background: rgba(255, 55, 95, 0.06) !important;
+}
+
+.stat-badge-stars {
+    border-color: rgba(255, 193, 7, 0.3) !important;
+    background: rgba(255, 193, 7, 0.08) !important;
+}
+
+.stat-badge-stars strong {
+    color: #ffc107 !important;
+    letter-spacing: 1px;
+}
+
+.stat-badge-error {
+    border-color: rgba(255, 82, 82, 0.3) !important;
+    background: rgba(255, 82, 82, 0.06) !important;
+    color: var(--text-muted) !important;
+}
+
+.stat-badge-error a {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
+
+.stat-badge-info {
+    border-color: rgba(0, 212, 255, 0.2) !important;
+    background: rgba(0, 212, 255, 0.04) !important;
+    font-style: italic;
+    font-size: 0.72rem !important;
+}
+
+/* --- Last Updated Timestamp --- */
+.profile-last-updated {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    opacity: 0.4;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.profile-last-updated:hover {
+    opacity: 1;
+}
+
+.profile-last-updated i {
+    font-size: 0.6rem;
+    color: var(--accent-primary);
+}
+
+/* Clickable refresh variant */
+.profile-last-updated--clickable {
+    cursor: pointer;
+    user-select: none;
+}
+
+.profile-last-updated--clickable:hover {
+    opacity: 1;
+    color: var(--accent-primary);
+}
+
+.profile-last-updated--clickable:hover i {
+    transform: rotate(90deg);
+    transition: transform 0.3s ease;
+}
+
 /* ============================================
    CERTIFICATES — CARD GRID LAYOUT
    ============================================ */
@@ -923,7 +1038,7 @@ ul {
 
 .cert-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
 }
 
@@ -980,9 +1095,10 @@ ul {
     color: #4285f4;
 }
 
-.cert-icon-wrap.cyber {
-    background: linear-gradient(135deg, rgba(0, 255, 170, 0.1), rgba(0, 212, 255, 0.1));
-    color: var(--accent-tertiary);
+.cert-icon-wrap.mongodb {
+    background: linear-gradient(135deg, rgba(77, 170, 87, 0.12), rgba(0, 212, 255, 0.08));
+    color: #4daa57;
+    border-color: rgba(77, 170, 87, 0.2);
 }
 
 .cert-card h3 {
@@ -1016,16 +1132,12 @@ ul {
     border: 1px solid rgba(0, 212, 255, 0.2);
 }
 
-.cert-badge.in-progress {
-    background: rgba(123, 47, 247, 0.1);
-    color: var(--accent-secondary);
-    border: 1px solid rgba(123, 47, 247, 0.2);
-}
-
-.cert-badge.learning {
-    background: rgba(0, 255, 170, 0.08);
-    color: var(--accent-tertiary);
-    border: 1px solid rgba(0, 255, 170, 0.2);
+/* --- View Certification button inside cert cards --- */
+.cert-btn {
+    display: inline-flex;
+    margin-top: 14px;
+    font-size: 0.82rem;
+    padding: 8px 18px;
 }
 
 /* ============================================
